@@ -75,7 +75,7 @@ return {
       sections = {
         lualine_a = { 'mode' },
         lualine_b = { 'branch' },
-        lualine_c = { 'diff' },
+        lualine_c = { 'filesize' },
         lualine_x = { 'searchcount', 'diagnostics' },
         lualine_y = { 'progress' },
         lualine_z = { 'location' }
@@ -146,6 +146,12 @@ return {
   {
     'numToStr/Comment.nvim',
     keys = { "gc", "gb", "gcc", "gbc" },
+    opts = {}
+  },
+
+  {
+    "lewis6991/gitsigns.nvim",
+    event = "BufEnter",
     opts = {}
   }
 }

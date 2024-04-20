@@ -80,6 +80,19 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<leader>f', function()
       vim.lsp.buf.format { async = true }
     end, opts)
+
+    vim.o.updatetime = 200
+    vim.api.nvim_create_autocmd("CursorHold", {
+      buffer = ev.buf,
+      callback = function()
+        local optd = {
+          focusable = false,
+          close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+          scope = 'cursor',
+        }
+        vim.diagnostic.open_float(nil, optd)
+      end
+    })
   end,
 })
 
