@@ -10,8 +10,7 @@ return {
     opts = {
       style = "night",
       styles = {
-        comments = { italic = false },
-        keywords = { italic = false },
+        keywords = { italic = false }
       },
     },
     config = function(_, opts)
@@ -75,8 +74,8 @@ return {
       sections = {
         lualine_a = { 'mode' },
         lualine_b = { 'branch' },
-        lualine_c = { 'filesize' },
-        lualine_x = { 'searchcount', 'diagnostics' },
+        lualine_c = { 'diagnostics' },
+        lualine_x = { 'filetype', 'encoding' },
         lualine_y = { 'progress' },
         lualine_z = { 'location' }
       },
@@ -123,7 +122,15 @@ return {
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
-      'hrsh7th/cmp-cmdline',
+      'saadparwaiz1/cmp_luasnip',
+
+      {
+        'L3MON4D3/LuaSnip',
+        config = function()
+          require("luasnip.loaders.from_vscode").lazy_load()
+        end,
+        dependencies = "rafamadriz/friendly-snippets"
+      },
     }
   },
 
@@ -133,14 +140,6 @@ return {
     config = function()
       require "configs.lspconfig"
     end
-  },
-
-  {
-    'L3MON4D3/LuaSnip',
-    config = function()
-      require("luasnip.loaders.from_vscode").lazy_load()
-    end,
-    dependencies = "rafamadriz/friendly-snippets"
   },
 
   {
