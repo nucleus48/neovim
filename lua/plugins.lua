@@ -75,7 +75,7 @@ return {
         lualine_a = { 'mode' },
         lualine_b = { 'branch' },
         lualine_c = { 'diagnostics' },
-        lualine_x = { 'filetype', 'encoding' },
+        lualine_x = { 'filetype', 'fileformat' },
         lualine_y = { 'progress' },
         lualine_z = { 'location' }
       },
