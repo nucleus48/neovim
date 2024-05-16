@@ -46,11 +46,13 @@ return {
     opts = {
       renderer = {
         root_folder_label = false,
+        highlight_git = true,
         indent_markers = { enable = true },
         icons = {
           web_devicons = {
             folder = { enable = true },
           },
+          show = { git = false }
         },
       },
       update_focused_file = { enable = true },

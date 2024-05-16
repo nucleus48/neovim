@@ -1,4 +1,5 @@
 local options = {
+  breakindent = true,
 	cmdheight = 1,
 	confirm = true,
 	cursorline = true,
@@ -6,6 +7,7 @@ local options = {
 	expandtab = true,
 	hidden = true,
 	lazyredraw = true,
+  linebreak = true,
 	number = true,
 	numberwidth = 1,
 	pumheight = 20,
@@ -24,7 +26,7 @@ local options = {
   termguicolors = true,
 	undofile = true,
 	whichwrap = "l,h,<,>",
-	wrap = false,
+	wrap = true,
 	signcolumn = "yes",
 }
 
