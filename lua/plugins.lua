@@ -52,7 +52,17 @@ return {
           web_devicons = {
             folder = { enable = true },
           },
-          show = { git = false }
+          glyphs = {
+            git = {
+              unstaged = "",
+              staged = "S",
+              unmerged = "",
+              renamed = "",
+              untracked = "U",
+              deleted = "",
+              ignored = "◌",
+            }
+          },
         },
       },
       update_focused_file = { enable = true },
@@ -153,6 +163,11 @@ return {
   {
     "lewis6991/gitsigns.nvim",
     event = "BufEnter",
+    opts = {}
+  },
+
+  {
+    "stevearc/conform.nvim",
     opts = {}
   }
 }
