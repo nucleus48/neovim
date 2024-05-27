@@ -169,5 +169,18 @@ return {
   {
     "stevearc/conform.nvim",
     opts = {}
+  },
+
+  {
+    'stevearc/dressing.nvim',
+    opts = {},
+  },
+
+  {
+    "rcarriga/nvim-notify",
+    lazy = false,
+    config = function()
+      require("configs.notify")
+    end
   }
 }
