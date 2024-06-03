@@ -3,6 +3,7 @@ return {
   "onsails/lspkind.nvim",
   "b0o/schemastore.nvim",
   "Issafalcon/lsp-overloads.nvim",
+  "JoosepAlviste/nvim-ts-context-commentstring",
 
   {
     "folke/tokyonight.nvim",
@@ -120,7 +121,10 @@ return {
     event = "BufEnter",
     main = "ibl",
     opts = {
-      indent = { char = "▏" }
+      indent = {
+        char = "▏",
+        repeat_linebreak = false
+      }
     }
   },
 
@@ -157,7 +161,11 @@ return {
   {
     'numToStr/Comment.nvim',
     keys = { "gc", "gb", "gcc", "gbc" },
-    opts = {}
+    config = function()
+      require('Comment').setup {
+        pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+      }
+    end
   },
 
   {
@@ -173,14 +181,7 @@ return {
 
   {
     'stevearc/dressing.nvim',
-    opts = {},
-  },
-
-  {
-    "rcarriga/nvim-notify",
     lazy = false,
-    config = function()
-      require("configs.notify")
-    end
+    opts = {},
   }
 }

@@ -26,7 +26,7 @@ local options = {
   termguicolors = true,
   undofile = true,
   whichwrap = "l,h,<,>",
-  wrap = true,
+  wrap = false,
   signcolumn = "yes",
 }
 

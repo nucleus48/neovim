@@ -1,7 +1,14 @@
 local lspconfig = require "lspconfig"
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-local servers = { "emmet_ls", "tsserver", "html", "eslint", "pyright", "dartls" }
+local servers = {
+  "emmet_ls",
+  "tsserver",
+  "html",
+  "eslint",
+  "pyright",
+  "clangd",
+}
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
