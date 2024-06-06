@@ -176,7 +176,21 @@ return {
 
   {
     "stevearc/conform.nvim",
-    opts = {}
+    opts = {
+      formatters_by_ft = {
+        javascript = { "prettier" },
+        javascriptreact = { "prettier" },
+        typescript = { "prettier" },
+        typescriptreact = { "prettier" },
+        html = { "prettier" },
+        css = { "prettier" },
+        json = { "prettier" },
+        jsonc = { "prettier" },
+        markdown = { "prettier" },
+        yaml = { "prettier" },
+        lua = { "stylua" },
+      }
+    }
   },
 
   {

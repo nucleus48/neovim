@@ -25,8 +25,9 @@ local options = {
   tabstop = 2,
   termguicolors = true,
   undofile = true,
-  whichwrap = "l,h,<,>",
+  whichwrap = "l,h,<,>,[,]",
   wrap = false,
+  writebackup = false,
   signcolumn = "yes",
 }
 
