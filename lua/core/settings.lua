@@ -35,5 +35,7 @@ for key, value in pairs(options) do
   vim.opt[key] = value
 end
 
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 vim.g.loaded_python3_provider = 0
 vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
