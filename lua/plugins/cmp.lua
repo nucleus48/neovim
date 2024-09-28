@@ -62,7 +62,7 @@ end
 
 return {
 	"hrsh7th/nvim-cmp",
-	event = "InsertEnter",
+	event = { "InsertEnter", "CmdlineEnter" },
 	config = config,
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
@@ -70,6 +70,7 @@ return {
 		"hrsh7th/cmp-path",
 		"saadparwaiz1/cmp_luasnip",
 		"onsails/lspkind.nvim",
+		"hrsh7th/cmp-cmdline",
 
 		{
 			"L3MON4D3/LuaSnip",
