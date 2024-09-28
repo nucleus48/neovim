@@ -12,12 +12,12 @@ local options = {
   numberwidth = 1,
   pumheight = 20,
   relativenumber = true,
-  scrolloff = 2,
+  scrolloff = 4,
   shiftwidth = 2,
   shortmess = 'aoOstTWAIcCqFS',
   showcmd = false,
   showmode = false,
-  sidescrolloff = 2,
+  sidescrolloff = 4,
   smarttab = true,
   splitbelow = true,
   splitright = true,
@@ -36,6 +36,3 @@ for key, value in pairs(options) do
 end
 
 vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
-vim.g.loaded_python3_provider = 0
-vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"

@@ -18,17 +18,13 @@ local function config()
       }
     },
     formatting = {
-      fields = { "abbr", "kind", "menu" },
+      fields = { "kind", "abbr", "menu" },
       format = require('lspkind').cmp_format({
         mode = 'symbol_text',
-        maxwidth = 30,
+        maxwidth = 50,
         ellipsis_char = '...',
         show_labelDetails = true,
         preset = "codicons",
-        before = function(_, vim_item)
-          vim_item.menu = ""
-          return vim_item
-        end
       })
     },
     mapping = cmp.mapping.preset.insert({

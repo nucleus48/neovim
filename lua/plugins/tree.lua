@@ -24,6 +24,11 @@ return {
       },
     },
     update_focused_file = { enable = true },
+    git = {
+      enable = true,
+      show_on_dirs = true,
+      show_on_open_dirs = false,
+    },
     diagnostics = {
       enable = true,
       show_on_dirs = true,
