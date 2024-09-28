@@ -20,6 +20,6 @@ return {
       lualine_y = { 'progress' },
       lualine_z = { 'location' }
     },
-    extensions = { 'lazy', 'nvim-tree', 'quickfix', 'mason' }
+    extensions = { 'lazy', 'nvim-tree', 'quickfix', 'mason', 'toggleterm' }
   }
 }
