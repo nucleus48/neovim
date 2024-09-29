@@ -29,10 +29,10 @@ local function config()
       vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
       vim.keymap.set('n', 'gl', vim.diagnostic.open_float, opts)
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-      vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
+      vim.keymap.set('n', '<leader>lD', vim.lsp.buf.type_definition, opts)
       vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename, opts)
-      vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
-      vim.keymap.set('n', '<M-f>', function()
+      vim.keymap.set({ 'n', 'v' }, '<leader>la', vim.lsp.buf.code_action, opts)
+      vim.keymap.set('n', '<leader>lf', function()
         require("conform").format({
           bufnr = ev.buf,
           async = true,
