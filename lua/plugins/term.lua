@@ -11,7 +11,7 @@ return {
     end,
     shade_terminals = true,
     direction = 'horizontal',
-    shell = vim.o.shell,
+    shell = "pwsh.exe",
     float_opts = {
       border = 'single',
     },

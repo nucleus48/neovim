@@ -12,6 +12,7 @@ end
 local function new_terminal(direction)
 	local Terminal = require("toggleterm.terminal").Terminal
 	local term = Terminal:new({ direction = direction, count = term_count })
+	map("n", string.format("<M-%d>", term_count), string.format(":%dToggleTerm direction=%s<cr>", term_count, direction))
 	term_count = term_count + 1
 	term:toggle()
 end

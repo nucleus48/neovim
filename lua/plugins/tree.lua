@@ -1,6 +1,6 @@
 return {
 	"nvim-tree/nvim-tree.lua",
-	lazy = false,
+	cmd = { "NvimTreeToggle" },
 	opts = {
 		renderer = {
 			root_folder_label = false,
@@ -20,7 +20,9 @@ return {
 				},
 			},
 		},
-		update_focused_file = { enable = true },
+		update_focused_file = {
+			enable = true,
+		},
 		git = {
 			enable = true,
 			show_on_dirs = true,
