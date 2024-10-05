@@ -34,5 +34,9 @@ return {
 			show_on_dirs = true,
 			show_on_open_dirs = false,
 		},
+		filters = {
+			enable = true,
+			git_ignored = false,
+		},
 	},
 }

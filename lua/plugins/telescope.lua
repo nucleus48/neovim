@@ -1,7 +1,7 @@
 -- plugins/telescope.lua:
 return {
 	"nvim-telescope/telescope.nvim",
-	cmd = { "Telescope" },
+	event = { "BufEnter" },
 	config = function()
 		local telescope = require("telescope")
 

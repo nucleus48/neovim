@@ -21,6 +21,7 @@ local function new_terminal(direction)
 	term:toggle()
 end
 
+map("n", ";", ":")
 map("n", "<C-s>", ":w<cr>")
 map("n", "<leader>w", ":w<cr>")
 map("n", "<Tab>", ":bnext<cr>")
