@@ -1,61 +1,27 @@
+---@class MasonSettings
+local options_mason = {
+	firewall = {
+		enabled = true,
+	},
+}
+
+local options_mason_lspconfig = {
+	automatic_enable = true,
+}
+
 return {
 	{
-		"williamboman/mason-lspconfig.nvim",
-		dependencies = { "williamboman/mason.nvim" },
-		opts = {
-			handlers = {
-				function(server)
-					require("lspconfig")[server].setup({
-						capabilities = require("cmp_nvim_lsp").default_capabilities(),
-					})
-				end,
-
-				["graphql"] = function()
-					require("lspconfig").graphql.setup({
-						capabilities = require("cmp_nvim_lsp").default_capabilities(),
-						filetypes = { "graphql", "typescriptreact", "javascriptreact", "typescript", "javascript" },
-					})
-				end,
-
-				["jsonls"] = function()
-					require("lspconfig").jsonls.setup({
-						capabilities = require("cmp_nvim_lsp").default_capabilities(),
-						settings = {
-							json = {
-								schemas = require("schemastore").json.schemas(),
-								validate = { enable = true },
-							},
-						},
-					})
-				end,
-
-				["lua_ls"] = function()
-					require("lspconfig").lua_ls.setup({
-						capabilities = require("cmp_nvim_lsp").default_capabilities(),
-						settings = {
-							Lua = {
-								diagnostics = {
-									globals = { "vim" },
-								},
-								workspace = {
-									library = {
-										[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-										[vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
-									},
-									maxPreload = 100000,
-									preloadFileSize = 10000,
-								},
-							},
-						},
-					})
-				end,
-			},
-		},
+		"mason-org/mason.nvim",
+		cmd = { "Mason" },
+		opts = options_mason,
 	},
 
 	{
-		"williamboman/mason.nvim",
-		cmd = { "Mason" },
-		opts = {},
+		"mason-org/mason-lspconfig.nvim",
+		opts = options_mason_lspconfig,
+		dependencies = {
+			"mason-org/mason.nvim",
+			"neovim/nvim-lspconfig",
+		},
 	},
 }

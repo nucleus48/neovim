@@ -1,15 +1,9 @@
 return {
-	"nvim-treesitter/nvim-treesitter",
-	event = "BufEnter",
-	build = ":TSUpdate",
-	opts = {
-		auto_install = true,
-		highlight = { enable = true },
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter-context",
+		},
 	},
-	config = function(_, opts)
-		local configs = require("nvim-treesitter.configs")
-		require("nvim-treesitter.install").compilers = { "zig" }
-		require("nvim-treesitter.install").prefer_git = false
-		configs.setup(opts)
-	end,
 }
