@@ -11,9 +11,8 @@ return {
 	},
 	{
 		"Crysthamus/nvim-file-operations",
-		-- branch = "compat" -- if you are on Neovim <= 0.10
 		dependencies = {
-			"nvim-neo-tree/neo-tree.nvim", -- makes sure that this loads after Neo-tree.
+			"nvim-neo-tree/neo-tree.nvim",
 		},
 		config = function()
 			require("nvim-file-operations").setup({
@@ -23,9 +22,7 @@ return {
 				did_create_files = true,
 				will_delete_files = true,
 				did_delete_files = true,
-				-- How long to wait (in milliseconds) for LSP responses before cancelling
 				timeout_ms = 10000,
-				-- Saves modifies files after renames, moves, etc.
 				auto_save = false,
 			})
 		end,
@@ -38,11 +35,8 @@ return {
 				filter_rules = {
 					include_current_win = false,
 					autoselect_one = true,
-					-- filter using buffer options
 					bo = {
-						-- if the file type is one of following, the window will be ignored
 						filetype = { "neo-tree", "neo-tree-popup", "notify" },
-						-- if the buffer type is one of following, the window will be ignored
 						buftype = { "terminal", "quickfix" },
 					},
 				},

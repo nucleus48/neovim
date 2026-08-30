@@ -1,8 +1,6 @@
 local options = {
 	formatters_by_ft = {
 		lua = { "stylua" },
-		["*"] = { "codespell" },
-		["_"] = { "trim_whitespace" },
 		html = { "prettier" },
 		css = { "prettier" },
 		javascript = { "prettier" },

@@ -1,12 +1,27 @@
 return {
 	"nvim-lua/plenary.nvim",
+	"nvim-tree/nvim-web-devicons",
 
-	-- {
-	-- 	"rcarriga/nvim-notify",
-	-- 	config = function()
-	-- 		vim.notify = require("notify")
-	-- 	end,
-	-- },
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+	},
+
+	{
+		"stevearc/oil.nvim",
+		opts = {},
+	},
+
+	{
+		"folke/neoconf.nvim",
+		opts = {},
+	},
+
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		opts = { indent = { char = "▏" } },
+	},
 
 	{
 		"windwp/nvim-ts-autotag",
@@ -27,7 +42,6 @@ return {
 
 	{
 		"folke/todo-comments.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = {},
 	},
 }

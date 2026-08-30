@@ -1,4 +1,3 @@
----@class MasonSettings
 local options_mason = {
 	firewall = {
 		enabled = true,
