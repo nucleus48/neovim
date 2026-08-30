@@ -16,28 +16,34 @@ map("n", "<C-s>", "<cmd>w<cr>", { desc = "save" })
 map("n", "<leader>w", "<cmd>w<cr>", { desc = "save" })
 map("n", "<Esc>", "<cmd>noh<CR>", { desc = "clear highlights" })
 
+-- Better window navigation
+map("n", "<C-h>", "<C-w>h", { desc = "move to left window" })
+map("n", "<C-j>", "<C-w>j", { desc = "move to lower window" })
+map("n", "<C-k>", "<C-w>k", { desc = "move to upper window" })
+map("n", "<C-l>", "<C-w>l", { desc = "move to right window" })
+
+-- Better indent in visual mode
+map("v", "<", "<gv", { desc = "indent left" })
+map("v", ">", ">gv", { desc = "indent right" })
+
 -- Barbar
 map("n", "<leader>c", "<cmd>BufferClose<cr>", { desc = "close" })
 map("n", "<Tab>", "<cmd>BufferNext<cr>", { desc = "next" })
 map("n", "<S-Tab>", "<cmd>BufferPrevious<cr>", { desc = "previous" })
 
 -- Lspsaga
-map("n", "<leader>li", "<cmd>Lspsaga incoming_calls<cr>", { desc = "incomming calls" })
-map("n", "<leader>lo", "<cmd>Lspsaga outgoing_calls<cr>", { desc = "outgoing calls" })
 map("n", "<leader>la", "<cmd>Lspsaga code_action<cr>", { desc = "code action" })
-map("n", "<leader>lp", "<cmd>Lspsaga peek_definition<cr>", { desc = "peek definition" })
-map("n", "<leader>lt", "<cmd>Lspsaga peek_type_definition<cr>", { desc = "peek type definition" })
-map("n", "<leader>ld", "<cmd>Lspsaga diagnostic_jump_next<cr>", { desc = "diagnostic next" })
-map("n", "<leader>lp", "<cmd>Lspsaga diagnostic_jump_prev<cr>", { desc = "diagnostic previous" })
+map("n", "<leader>ll", "<cmd>Lspsaga show_line_diagnostics<cr>", { desc = "next diagnostic" })
 map("n", "<leader>lR", "<cmd>Lspsaga finder ref<cr>", { desc = "references" })
-map("n", "<leader>lD", "<cmd>Lspsaga finder def<cr>", { desc = "definition" })
-map("n", "<leader>lI", "<cmd>Lspsaga finder imp<cr>", { desc = "implimentations" })
-map("n", "<leader>lT", "<cmd>Lspsaga finder tyd<cr>", { desc = "type definition" })
-map("n", "<leader>lO", "<cmd>Lspsaga outline", { desc = "outline" })
+map("n", "<leader>ld", "<cmd>Lspsaga finder def<cr>", { desc = "definition" })
+map("n", "<leader>li", "<cmd>Lspsaga finder imp<cr>", { desc = "implementations" })
+map("n", "<leader>lt", "<cmd>Lspsaga finder tyd<cr>", { desc = "type definition" })
+map("n", "<leader>lo", "<cmd>Lspsaga outline<cr>", { desc = "outline" })
 map("n", "<leader>lr", "<cmd>Lspsaga rename ++project<cr>", { desc = "rename" })
-map("n", "<leader>lk", "<cmd>Lspsaga hover_doc<cr>", { desc = "hover" })
+map("n", "K", "<cmd>Lspsaga hover_doc<cr>", { desc = "hover" })
 
 -- Telescope
+map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "find files" })
 map("n", "<leader>fw", "<cmd>Telescope live_grep<CR>", { desc = "live grep" })
 map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "find buffers" })
 map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "help page" })
@@ -46,6 +52,8 @@ map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", { desc = "find oldfiles" }
 map("n", "<leader>fz", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { desc = "find in current buffer" })
 map("n", "<leader>fc", "<cmd>Telescope git_commits<CR>", { desc = "git commits" })
 map("n", "<leader>fs", "<cmd>Telescope git_status<CR>", { desc = "git status" })
+map("n", "<leader>ft", "<cmd>TodoTrouble<CR>", { desc = "todo comments" })
+map("n", "<leader>fd", "<cmd>TodoTelescope<CR>", { desc = "todo telescope" })
 
 -- Neotree
 map("n", "<leader>e", "<cmd>Neotree toggle<cr>", { desc = "explorer" })
