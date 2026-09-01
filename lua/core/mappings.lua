@@ -40,7 +40,7 @@ map("n", "<leader>ld", "<cmd>Lspsaga finder def<cr>", { desc = "definition" })
 map("n", "<leader>li", "<cmd>Lspsaga finder imp<cr>", { desc = "implementations" })
 map("n", "<leader>lt", "<cmd>Lspsaga finder tyd<cr>", { desc = "type definition" })
 map("n", "<leader>lo", "<cmd>Lspsaga outline<cr>", { desc = "outline" })
-map("n", "<leader>lr", "<cmd>Lspsaga rename ++project<cr>", { desc = "rename" })
+map("n", "<leader>lr", "<cmd>Lspsaga rename<cr>", { desc = "rename" })
 map("n", "K", "<cmd>Lspsaga hover_doc<cr>", { desc = "hover" })
 
 -- Telescope
