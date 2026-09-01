@@ -57,8 +57,8 @@ map("n", "<leader>ft", "<cmd>TodoTrouble<CR>", { desc = "todo comments" })
 map("n", "<leader>fd", "<cmd>TodoTelescope<CR>", { desc = "todo telescope" })
 
 -- Neotree
-map("n", "<leader>e", "<cmd>Neotree toggle<cr>", { desc = "explorer" })
-map("n", "<leader>E", "<cmd>Neotree focus<cr>", { desc = "explorer float" })
+map("n", "<leader>e", "<cmd>Neotree left toggle<cr>", { desc = "explorer" })
+map("n", "<leader>E", "<cmd>Neotree float toggle<cr>", { desc = "explorer float" })
 
 -- Grugfar
 map({ "n", "x" }, "<leader>si", function()
@@ -82,3 +82,6 @@ map({ "n", "x" }, "<leader>ss", function()
 		inst:goto_input("replacement")
 	end)
 end, { desc = "grug-far: Search using @/ register value or visual selection" })
+
+-- Markdown
+map("n", "<leader>m", "<cmd>RenderMarkdown toggle<cr>", { desc = "toggle markdown" })

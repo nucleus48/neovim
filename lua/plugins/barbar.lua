@@ -10,6 +10,7 @@ return {
 		"romgrk/barbar.nvim",
 		opts = options,
 		version = "^1.0.0",
+		event = { "BufNew" },
 		dependencies = {
 			"lewis6991/gitsigns.nvim",
 			"nvim-tree/nvim-web-devicons",

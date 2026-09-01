@@ -17,6 +17,7 @@ return {
 
 	{
 		"mason-org/mason-lspconfig.nvim",
+    event = {"BufEnter", "BufWinEnter", "BufNew"},
 		opts = options_mason_lspconfig,
 		dependencies = {
 			"mason-org/mason.nvim",

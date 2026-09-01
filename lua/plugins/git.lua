@@ -60,7 +60,7 @@ return {
 			"m00qek/baleia.nvim", -- optional
 			"nvim-telescope/telescope.nvim", -- optional
 		},
-		cmd = "Neogit",
+		cmd = { "Neogit" },
 		keys = {
 			{ "<leader>gg", "<cmd>Neogit<cr>", desc = "Show Neogit UI" },
 		},
