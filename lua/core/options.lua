@@ -18,8 +18,8 @@ opt.fillchars = {
 	eob = " ",
 }
 opt.foldlevel = 99
+opt.foldlevelstart = 99
 opt.foldmethod = "indent"
-opt.foldtext = ""
 opt.formatexpr = "v:lua.require'conform'.formatexpr()"
 opt.formatoptions = "jcroqlnt" -- tcqj
 opt.grepformat = "%f:%l:%c:%m"
@@ -64,3 +64,7 @@ vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.wo[0][0].foldmethod = "expr"
 
 vim.g.markdown_recommended_style = 0
+vim.g.no_plugin_maps = true
+
+vim.g.lazygit_floating_window_scaling_factor = 0.9 -- scaling factor for floating window
+vim.g.lazygit_floating_window_border_chars = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" } -- customize lazygit popup window border characters

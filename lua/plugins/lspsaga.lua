@@ -3,6 +3,7 @@ return {
 		"nvimdev/lspsaga.nvim",
 		event = "LspAttach",
 		opts = {
+			symbol_in_winbar = { enable = false },
 			finder = {
 				methods = {
 					tyd = "textDocument/typeDefinition",

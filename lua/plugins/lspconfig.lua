@@ -2,8 +2,23 @@ function config()
 	local x = vim.diagnostic.severity
 
 	vim.diagnostic.config({
-		signs = { text = { [x.ERROR] = "󰅙", [x.WARN] = "", [x.INFO] = "󰋼", [x.HINT] = "󰌵" } },
 		underline = true,
+		virtual_text = {
+			current_line = true,
+			severity = vim.diagnostic.severity.ERROR,
+		},
+		signs = { text = { [x.ERROR] = "󰅙", [x.WARN] = "", [x.INFO] = "󰋼", [x.HINT] = "󰌵" } },
+	})
+
+	vim.api.nvim_create_autocmd("LspAttach", {
+		callback = function(args)
+			local client = vim.lsp.get_client_by_id(args.data.client_id)
+
+			if client and client.name == "cspell_ls" then
+				local ns = vim.lsp.diagnostic.get_namespace(client.id)
+				vim.diagnostic.config({ signs = false }, ns)
+			end
+		end,
 	})
 
 	vim.lsp.config("*", {
@@ -38,6 +53,7 @@ function config()
 	})
 
 	vim.lsp.config("yamlls", {
+		---@type lspconfig.settings.yamlls
 		settings = {
 			yaml = {
 				schemaStore = { enable = false, url = "" },
@@ -51,9 +67,6 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		config = config,
-		dependencies = {
-			"b0o/schemastore.nvim",
-			"folke/neoconf.nvim",
-		},
+		dependencies = { "b0o/schemastore.nvim" },
 	},
 }

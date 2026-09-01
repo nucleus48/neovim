@@ -8,6 +8,54 @@ return {
 			"MunifTanjim/nui.nvim",
 			"nvim-tree/nvim-web-devicons",
 		},
+		config = function()
+			local function open_grug_far(prefills)
+				local grug_far = require("grug-far")
+
+				if not grug_far.has_instance("explorer") then
+					grug_far.open({ instanceName = "explorer" })
+				else
+					grug_far.get_instance("explorer"):open()
+				end
+				grug_far.get_instance("explorer"):update_input_values(prefills, false)
+			end
+
+			require("neo-tree").setup({
+				filesystem = {
+					follow_current_file = {
+						leave_dirs_open = false,
+						enabled = true,
+					},
+				},
+				commands = {
+					grug_far_replace = function(state)
+						local node = state.tree:get_node()
+						local prefills = {
+							paths = node.type == "directory" and vim.fn.fnameescape(
+								vim.fn.fnamemodify(node:get_id(), ":p")
+							) or vim.fn.fnameescape(vim.fn.fnamemodify(node:get_id(), ":h")),
+						}
+						open_grug_far(prefills)
+					end,
+					grug_far_replace_visual = function(state, selected_nodes, callback)
+						local paths = {}
+						for _, node in pairs(selected_nodes) do
+							local path = node.type == "directory"
+									and vim.fn.fnameescape(vim.fn.fnamemodify(node:get_id(), ":p"))
+								or vim.fn.fnameescape(vim.fn.fnamemodify(node:get_id(), ":h"))
+							table.insert(paths, path)
+						end
+						local prefills = { paths = table.concat(paths, "\n") }
+						open_grug_far(prefills)
+					end,
+				},
+				window = {
+					mappings = {
+						z = "grug_far_replace",
+					},
+				},
+			})
+		end,
 	},
 	{
 		"Crysthamus/nvim-file-operations",

@@ -2,7 +2,21 @@ return {
 	"nvim-lua/plenary.nvim",
 	"nvim-tree/nvim-web-devicons",
 
+	{ "OXY2DEV/foldtext.nvim", lazy = false },
+	{ "chrisgrieser/nvim-origami", event = "VeryLazy", opts = {} },
 	{ "catppuccin/nvim", name = "catppuccin", lazy = false, priority = 1000 },
+
+	{
+		"folke/lazydev.nvim",
+		ft = "lua",
+		opts = {
+			library = {
+				"lazy",
+				"nvim-lspconfig",
+				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+			},
+		},
+	},
 
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
@@ -31,13 +45,7 @@ return {
 	{
 		"stevearc/oil.nvim",
 		lazy = false,
-		opts = {},
-	},
-
-	{
-		"folke/neoconf.nvim",
-		lazy = false,
-		opts = {},
+		opts = { git = true },
 	},
 
 	{
@@ -78,5 +86,26 @@ return {
 				pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
 			})
 		end,
+	},
+
+	{
+		"Bekaboo/dropbar.nvim",
+		event = { "BufEnter", "BufWinEnter", "BufNew" },
+		dependencies = { "nvim-telescope/telescope-fzf-native.nvim" },
+	},
+
+	{
+		"kdheepak/lazygit.nvim",
+		cmd = {
+			"LazyGit",
+			"LazyGitConfig",
+			"LazyGitCurrentFile",
+			"LazyGitFilter",
+			"LazyGitFilterCurrentFile",
+		},
+		dependencies = { "nvim-lua/plenary.nvim" },
+		keys = {
+			{ "<leader>gl", "<cmd>LazyGit<cr>", desc = "lazygit" },
+		},
 	},
 }

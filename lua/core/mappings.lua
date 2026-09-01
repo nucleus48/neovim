@@ -11,7 +11,6 @@ map({ "n", "x" }, "<leader>lf", function()
 	require("conform").format({ async = true, lsp_format = "fallback" })
 end, { desc = "format" })
 
-map("n", ";", ":")
 map("n", "<C-s>", "<cmd>w<cr>", { desc = "save" })
 map("n", "<leader>w", "<cmd>w<cr>", { desc = "save" })
 map("n", "<Esc>", "<cmd>noh<CR>", { desc = "clear highlights" })
@@ -26,11 +25,6 @@ map("n", "<C-q>", "<cmd>close<cr>", { desc = "close window" })
 -- Better indent in visual mode
 map("v", "<", "<gv", { desc = "indent left" })
 map("v", ">", ">gv", { desc = "indent right" })
-
--- Barbar
-map("n", "<leader>c", "<cmd>BufferClose<cr>", { desc = "close" })
-map("n", "<Tab>", "<cmd>BufferNext<cr>", { desc = "next" })
-map("n", "<S-Tab>", "<cmd>BufferPrevious<cr>", { desc = "previous" })
 
 -- Lspsaga
 map("n", "<leader>la", "<cmd>Lspsaga code_action<cr>", { desc = "code action" })
@@ -61,27 +55,38 @@ map("n", "<leader>e", "<cmd>Neotree left toggle<cr>", { desc = "explorer" })
 map("n", "<leader>E", "<cmd>Neotree float toggle<cr>", { desc = "explorer float" })
 
 -- Grugfar
-map({ "n", "x" }, "<leader>si", function()
+map({ "n", "x" }, "<leader>sl", function()
 	require("grug-far").open({ visualSelectionUsage = "auto-detect" })
-end, { desc = "grug-far: Search within range" })
+end, { desc = "local search and replace" })
 
 map({ "n", "x" }, "<leader>ss", function()
-	local search = vim.fn.getreg("/")
-	-- surround with \b if "word" search (such as when pressing `*`)
-	if search and vim.startswith(search, "\\<") and vim.endswith(search, "\\>") then
-		search = "\\b" .. search:sub(3, -3) .. "\\b"
-	elseif search and vim.startswith(search, "\\V") then
-		search = search:sub(3)
-	end
-	local inst = require("grug-far").open({
-		prefills = {
-			search = search,
-		},
-	})
-	inst:when_ready(function()
-		inst:goto_input("replacement")
-	end)
-end, { desc = "grug-far: Search using @/ register value or visual selection" })
+	require("grug-far").open({ visualSelectionUsage = "auto-detect" })
+end, { desc = "global search and replace" })
 
 -- Markdown
 map("n", "<leader>m", "<cmd>RenderMarkdown toggle<cr>", { desc = "toggle markdown" })
+
+-- folding
+vim.keymap.set("n", "<Left>", function()
+	require("origami").h()
+end)
+vim.keymap.set("n", "<Right>", function()
+	require("origami").l()
+end)
+vim.keymap.set("n", "<Home>", function()
+	require("origami").caret()
+end)
+vim.keymap.set("n", "<End>", function()
+	require("origami").dollar()
+end)
+
+-- dropbar
+vim.keymap.set("n", "<Leader>b", function(...)
+	require("dropbar.api").pick(...)
+end, { desc = "Pick symbols in winbar" })
+vim.keymap.set("n", "[;", function(...)
+	require("dropbar.api").goto_context_start(...)
+end, { desc = "Go to start of current context" })
+vim.keymap.set("n", "];", function(...)
+	require("dropbar.api").select_next_context(...)
+end, { desc = "Select next context" })

@@ -12,7 +12,7 @@ require("lazy").setup({
 		{ import = "plugins" },
 	},
 
-	install = { colorscheme = { "tokyonight" } },
+	install = { colorscheme = { "tokyonight", "catppuccin" } },
 	checker = { enabled = false },
 	defaults = { lazy = true },
 
