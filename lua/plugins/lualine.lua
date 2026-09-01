@@ -16,7 +16,7 @@ return {
 				lualine_y = { "progress" },
 				lualine_z = {},
 			},
-			extensions = { "avante", "lazy", "neo-tree", "oil", "quickfix", "mason", "toggleterm" },
+			extensions = { "lazy", "neo-tree", "oil", "quickfix", "mason" },
 		},
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},

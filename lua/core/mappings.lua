@@ -21,6 +21,7 @@ map("n", "<C-h>", "<C-w>h", { desc = "move to left window" })
 map("n", "<C-j>", "<C-w>j", { desc = "move to lower window" })
 map("n", "<C-k>", "<C-w>k", { desc = "move to upper window" })
 map("n", "<C-l>", "<C-w>l", { desc = "move to right window" })
+map("n", "<C-q>", "<cmd>close<cr>", { desc = "close window" })
 
 -- Better indent in visual mode
 map("v", "<", "<gv", { desc = "indent left" })
@@ -57,7 +58,7 @@ map("n", "<leader>fd", "<cmd>TodoTelescope<CR>", { desc = "todo telescope" })
 
 -- Neotree
 map("n", "<leader>e", "<cmd>Neotree toggle<cr>", { desc = "explorer" })
-map("n", "<leader>E", "<cmd>Neotree toggle float<cr>", { desc = "explorer float" })
+map("n", "<leader>E", "<cmd>Neotree focus<cr>", { desc = "explorer float" })
 
 -- Grugfar
 map({ "n", "x" }, "<leader>si", function()

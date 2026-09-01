@@ -6,7 +6,6 @@ function config(_, opts)
 		{ "<leader>f", group = "telescope" },
 		{ "<leader>s", group = "search" },
 		{ "<leader>g", group = "git" },
-		{ "<leader>w", group = "window" },
 	})
 end
 
