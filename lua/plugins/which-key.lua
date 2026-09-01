@@ -12,8 +12,8 @@ end
 return {
 	{
 		"folke/which-key.nvim",
+    lazy = false,
 		opts = { icons = { mappings = false } },
 		config = config,
-		keys = { "<leader>" },
 	},
 }
